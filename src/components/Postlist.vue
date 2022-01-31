@@ -1,9 +1,9 @@
 <template>
-<h2>postlist</h2>
+
   <div class="postlist">
-    <div class="post" v-for="post in posts" :key="post.id">
-    <SinglePost :post="post"/>
-    </div>
+  
+    <SinglePost  v-for="post in posts" :key="post.id" :post="post"/>
+ 
   </div>
 </template>
 
@@ -17,18 +17,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .postlist{
   display:flex;
 flex-wrap: wrap;
-  gap:20px;
-  max-width:1140px;
- margin:0 auto;
+
+
+gap:10px;
+justify-content: center;
 }
-.post{
-  background: #fff;
-  width:200px;
-  padding:20px;
-  
-}
+
 </style>

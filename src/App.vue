@@ -1,12 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link :to="{name:'Home'}">Home</router-link> |
-    <router-link :to="{name:'CreateBlog'}">Create Blog</router-link>
-  </div>
+<div class="container">
+ <Navigation/>
   <router-view/>
+  </div>
 </template>
 
+<script>
+import Navigation from "./components/Navigation"
+
+export default {
+ name:'App',
+ components:{
+   Navigation
+ }
+}
+</script>
+
 <style>
+*{
+  margin:0;
+  padding:0;
+   box-sizing: border-box;
+}
 body{
   background:#333;
 }
@@ -18,17 +33,11 @@ body{
   color: #d5dce4;
   
 }
-
-#nav {
-  padding: 30px;
+.container{
+  max-width: 1140px;
+  margin:0 auto;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+h1{
+  margin-bottom: 40px;
 }
 </style>
