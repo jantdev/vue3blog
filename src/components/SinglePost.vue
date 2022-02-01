@@ -1,7 +1,7 @@
 <template>
   <div class="singlepost">
     <router-link :to="{ name: 'details', params: { id: post.id } }">
-      <h3>{{ post.title }}</h3>
+      {{ post.title }}
     </router-link>
     <p>{{ snippet }}</p>
     <div class="tags">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { computed } from "@vue/reactivity";
+import { computed } from "vue";
 export default {
   props: ["post"],
   setup(props) {
@@ -31,24 +31,26 @@ export default {
 .singlepost {
   display: flex;
   flex-direction: column;
-   background: #fff;
-  width:240px;
-  padding:0px 5px;
-  height: 300px;
+  background: #fff;
+  width: 240px;
+  padding: 0px 5px;
+  height: 290px;
   align-items: center;
+  justify-content: stretch;
 }
-.singlepost a{
-  flex:1;
+.singlepost a {
+  margin: 20px 0px;
   text-decoration: none;
-  color:#459571;
-  align-self: center;
+  font-size: 1.17em;
+  font-weight: bold;
+  color: #459571;
 }
-.singlepost p{
-  flex:4;
+
+.singlepost p {
+  height: 190px;
+  color: #333;
+}
+.singlepost .tags {
   color:#333;
-  
-}
-.singlepost .tags{
-  flex:1
 }
 </style>

@@ -28,9 +28,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .post{
-  max-width:1200px;
+ 
   margin:0 auto;
 }
 .post p{

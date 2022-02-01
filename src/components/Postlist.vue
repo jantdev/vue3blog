@@ -1,30 +1,54 @@
 <template>
-
+  <TagSorter :post="posts" @sorting="sortpost" />
   <div class="postlist">
-  
-    <SinglePost  v-for="post in posts" :key="post.id" :post="post"/>
- 
+    <SinglePost v-for="post in sortedPosts" :key="post.id" :post="post" />
   </div>
 </template>
 
 <script>
-import SinglePost from './SinglePost.vue'
+import SinglePost from "./SinglePost.vue";
+import TagSorter from "./TagSorter.vue";
+import { ref, onMounted } from "vue";
 
 export default {
-  props:['posts'],
-  components:{SinglePost},
- 
-}
+  props: ["posts"],
+  components: { SinglePost, TagSorter },
+  setup(props) {
+    const theposts = ref([]);
+    const sortedPosts = ref([]);
+    function sortpost(v) {
+      if (v == "all") {
+        sortedPosts.value = theposts.value;
+        return;
+      }
+      sortedPosts.value = theposts.value;
+      sortedPosts.value = sortedPosts.value.filter((e) => {
+        if (e.tags.includes(v)) {
+          return e;
+        }
+      });
+    }
+
+    onMounted(async () => {
+      theposts.value = await props.posts;
+      sortedPosts.value = theposts.value;
+    });
+
+    return {
+      theposts,
+      sortpost,
+      sortedPosts,
+    };
+  },
+};
 </script>
 
 <style scoped>
-.postlist{
-  display:flex;
-flex-wrap: wrap;
+.postlist {
+  display: flex;
+  flex-wrap: wrap;
 
-
-gap:10px;
-justify-content: center;
+  gap: 10px;
+  justify-content: center;
 }
-
 </style>

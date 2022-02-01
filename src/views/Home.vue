@@ -3,7 +3,8 @@
    <h1>Home</h1>
    <div v-if="error">{{error}}</div>
    <div v-if="loading">loading...</div>
-   <PostList :posts="posts"/> 
+   <div v-else>  <PostList :posts="posts"/> </div>
+ 
   </div>
 </template>
 
