@@ -1,6 +1,7 @@
 <template>
-<div class="container">
  <Navigation/>
+<div class="container">
+
   <router-view/>
   </div>
 </template>
@@ -23,7 +24,7 @@ export default {
    box-sizing: border-box;
 }
 body{
-  background:#333;
+  background:#eee;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -1,7 +1,12 @@
 <template>
   <TagSorter :post="posts" @sorting="sortpost" />
   <div class="postlist">
-    <SinglePost v-for="post in sortedPosts" :key="post.id" :post="post" />
+    <SinglePost
+      v-for="post in sortedPosts"
+      :key="post.id"
+      :post="post"
+      @sorting="sortpost"
+    />
   </div>
 </template>
 
@@ -49,6 +54,14 @@ export default {
   flex-wrap: wrap;
 
   gap: 10px;
+
   justify-content: center;
+  flex-direction: row;
 }
+@media only screen and (max-width: 763px) {
+  .postlist {
+    flex-direction: column;
+  }
+}
+
 </style>
